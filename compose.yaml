@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlPW
+      MYSQL_DATABASE: Transportadora
+    ports:
+      - "3356:3306"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
