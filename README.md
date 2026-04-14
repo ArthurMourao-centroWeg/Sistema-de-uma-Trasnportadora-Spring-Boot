@@ -1,4 +1,4 @@
-# Sistema-de-uma-Trasnportadora-Spring-Boot
+# Sistema-de-uma-Transportadora-Spring-Boot
 
 🚛 Sistema de Transportadora — CRUD com Spring Boot
 Meu primeiro projeto utilizando Spring Boot, desenvolvido para praticar os conceitos de API REST, JPA e boas práticas de desenvolvimento back-end.
