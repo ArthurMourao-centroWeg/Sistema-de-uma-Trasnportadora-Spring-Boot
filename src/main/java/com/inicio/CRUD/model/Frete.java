@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.UUID;
 public class Frete {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @NotNull
     @Positive
     private int valor;

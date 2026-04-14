@@ -1,7 +1,7 @@
 package com.inicio.CRUD.model.enums;
 
 public enum Status {
-    PENDETE,
+    PENDENTE,
     EM_ANDAMENTO,
     ENTREGUE;
 }

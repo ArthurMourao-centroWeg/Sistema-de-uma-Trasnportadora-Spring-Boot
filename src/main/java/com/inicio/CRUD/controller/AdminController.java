@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin")
 public class AdminController{
@@ -14,7 +16,7 @@ public class AdminController{
     @Autowired
     AdminService service;
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<?> salvarAdmin(@Valid @RequestBody Admin admin){
         try{
             service.salvarAdmin(admin);
@@ -27,18 +29,24 @@ public class AdminController{
 
     @GetMapping
     public ResponseEntity<?> listarTodos(){
-        service.listarAdmin();
-        return ResponseEntity.ok().build();
+         List<Admin> lista = service.listarAdmin();
+         return ResponseEntity.ok().body(lista);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<?> listarPorId(Long id){
+    public ResponseEntity<?> listarPorId(@PathVariable Long id){
         try{
-            service.listarAdminPorId(id);
-            return ResponseEntity.ok().build();
+            Admin admin = service.listarAdminPorId(id);
+            return ResponseEntity.ok().body(admin);
         } catch (RuntimeException e) {
             System.out.println("ID não encontrado " + e.getMessage());
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletar(@PathVariable Long id){
+        service.deletar(id);
+        return ResponseEntity.ok().body("Deletado com Sucesso!");
     }
 
 }

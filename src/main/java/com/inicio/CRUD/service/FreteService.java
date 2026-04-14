@@ -16,7 +16,7 @@ public class FreteService {
         return repository.save(frete);
     }
 
-    public List<Frete> listarTodosFretes(Frete frete){
+    public List<Frete> listarTodosFretes(){
         return repository.findAll();
     }
 

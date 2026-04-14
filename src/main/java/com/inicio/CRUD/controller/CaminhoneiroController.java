@@ -30,8 +30,8 @@ public class CaminhoneiroController {
     @GetMapping("/{id}")
     public ResponseEntity<?> listarPeloId(@PathVariable Long id){
         try{
-            service.listarCaminhoneiroPorId(id);
-            return ResponseEntity.noContent().build();
+            Caminhoneiro caminhoneiro = service.listarCaminhoneiroPorId(id);
+            return ResponseEntity.ok().body(caminhoneiro);
         } catch (RuntimeException e) {
             System.out.println("ID NÃO ENCONTRADO " + e.getMessage());
             return ResponseEntity.notFound().build();
