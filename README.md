@@ -20,7 +20,11 @@ SpringDoc / Swagger UI
 
 📁 Estrutura do Projeto
 src/
+
 ├── controller/     # Endpoints da API
+
 ├── model/          # Entidades e Enums
+
 ├── repository/     # Acesso ao banco de dados
+
 └── service/        # Regras de negócio
