@@ -1,14 +1,14 @@
 package com.inicio.CRUD.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.validator.constraints.UUID;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,4 +27,7 @@ public class Admin {
     @NotBlank
     @Size(min = 6)
     private String senha;
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Frete> fretes;
 }

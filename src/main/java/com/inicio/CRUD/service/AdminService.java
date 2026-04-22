@@ -27,6 +27,17 @@ public class AdminService {
         Admin admin = listarAdminPorId(id);
         repository.delete(admin);
     }
+    public void atualizar(Long id, Admin novoAdmin){
+        Admin existente = listarAdminPorId(id);
+
+        if (novoAdmin.getNome()!=null){
+            existente.setNome(novoAdmin.getNome());
+        }
+        if (novoAdmin.getEmail()!=null){
+            existente.setEmail(novoAdmin.getEmail());
+        }
+        repository.save(existente);
+    }
 
 
 }

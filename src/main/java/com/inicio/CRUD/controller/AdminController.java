@@ -49,4 +49,10 @@ public class AdminController{
         return ResponseEntity.ok().body("Deletado com Sucesso!");
     }
 
+    @PutMapping("/{id}")
+    public  ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody Admin admin){
+        service.atualizar(id,admin);
+        return ResponseEntity.ok().body("Atualizado com o sucesso");
+    }
+
 }
